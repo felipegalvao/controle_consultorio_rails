@@ -1,0 +1,52 @@
+<% provide(:title, "Paciente - " + @paciente.nome) %>
+<h1><%= @paciente.nome %></h1>
+<div class="row">
+    <h3>Informações do Paciente</h3>
+    <div class="col-md-3">
+        <p class="p-titulo-infopaciente">CPF</p>
+        <p><%= @paciente.cpf %></p>
+    </div>
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-3">
+        <p class="p-titulo-infopaciente">Identidade</p>
+        <p><%= @paciente.identidade %></p>
+    </div>
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-3">
+        <p class="p-titulo-infopaciente">Data de Nascimento</p>
+        <p><%= @paciente.data_de_nascimento %></p>
+    </div>
+    <div class="col-md-1">
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <p class="p-titulo-infopaciente">Sexo</p>
+        <p><%= @paciente.sexo %></p>
+    </div>
+</div>
+<div class="row">
+    <h3>Informações de Contato</h3>
+    <div class="col-md-3">
+        <p class="p-titulo-infopaciente">Telefone Fixo</p>
+        <p><%= @paciente.telefone_fixo %></p>
+    </div>
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-3">
+        <p class="p-titulo-infopaciente">Celular</p>
+        <p><%= @paciente.telefone_celular %></p>
+    </div>
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-3">
+        <p class="p-titulo-infopaciente">Email</p>
+        <p><%= @paciente.email %></p>
+    </div>
+    <div class="col-md-1">
+    </div>
+</div>
+
+</div>

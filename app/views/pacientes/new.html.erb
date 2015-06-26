@@ -1,0 +1,45 @@
+<% provide(:title, "Registrar novo paciente") %>
+<h1>Registrar novo paciente</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <%= form_for(@paciente) do |f| %>
+            <%= render 'shared/paciente_errors' %>
+        
+            <%= f.label :nome %>
+            <%= f.text_field :nome, class: 'form-control' %>
+            
+            <%= f.label :sexo %>
+            <%= f.text_field :sexo, class: 'form-control' %>
+            
+            <%= f.label :identidade %>
+            <%= f.text_field :identidade, class: 'form-control' %>
+            
+            <%= f.label :cpf %>
+            <%= f.text_field :cpf, class: 'form-control' %>
+            
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control' %>
+            
+            <%= f.label :telefone_fixo %>
+            <%= f.text_field :telefone_fixo, class: 'form-control' %>
+            
+            <%= f.label :telefone_celular %>
+            <%= f.text_field :telefone_celular, class: 'form-control' %>
+            
+            <%= f.label :endereco %>
+            <%= f.text_field :endereco, class: 'form-control' %>
+            
+            <%= f.label :data_de_nascimento %>
+            <%= f.date_field :data_de_nascimento, class: 'form-control' %>
+            
+            <%= f.label :plano_de_saude %>
+            <%= f.text_field :plano_de_saude, class: 'form-control' %>
+            
+            <%= f.label :numero_plano_de_saude %>
+            <%= f.text_field :numero_plano_de_saude, class: 'form-control' %>
+            
+            <%= f.submit "Registrar Paciente", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+</div>

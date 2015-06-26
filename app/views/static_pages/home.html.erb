@@ -1,4 +1,10 @@
 <div class="container">
     <h1>Controle de Consultório</h1>
     <p>Controle seu Consultório, se organize e tenha mais tempo gastando menos dinheiro.</p>
+    <% if logged_in? %>
+        <p><%= link_to "Vá para seu Dashboard", dashboard_path %></p>
+    <% else %>
+        <p><%= link_to "Criar sua conta", criarconta_path %></p>
+        <p><%= link_to "Já tem conta? Então faça o login", login_path %></p>
+    <% end %>
 </div>

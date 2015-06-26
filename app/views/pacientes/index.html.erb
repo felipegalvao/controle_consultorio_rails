@@ -1,0 +1,76 @@
+<% provide(:title, 'Pacientes') %>
+
+<h1>Pacientes</h1>
+<p>Gerencie aqui todos os seus pacientes</p>
+
+<div class="alert alert-info">
+  <p><span class="glyphicon glyphicon-plus glyphicon-registrarpaciente" id="id-mostrarformpaciente"></span> Registrar um novo paciente</p>
+</div>
+<%= render 'shared/paciente_errors' %>
+<div class="row row-criar-paciente">
+  <%= form_for(@paciente) do |f| %>
+  
+      <%= f.label :nome %>
+      <%= f.text_field :nome, class: 'form-control' %>
+      
+      <%= f.label :sexo %>
+      <%= f.text_field :sexo, class: 'form-control' %>
+      
+      <%= f.label :identidade %>
+      <%= f.text_field :identidade, class: 'form-control' %>
+      
+      <%= f.label :cpf %>
+      <%= f.text_field :cpf, class: 'form-control' %>
+      
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+      
+      <%= f.label :telefone_fixo %>
+      <%= f.text_field :telefone_fixo, class: 'form-control' %>
+      
+      <%= f.label :telefone_celular %>
+      <%= f.text_field :telefone_celular, class: 'form-control' %>
+      
+      <%= f.label :endereco %>
+      <%= f.text_field :endereco, class: 'form-control' %>
+      
+      <%= f.label :data_de_nascimento %>
+      <%= f.date_field :data_de_nascimento, class: 'form-control' %>
+      
+      <%= f.label :plano_de_saude %>
+      <%= f.text_field :plano_de_saude, class: 'form-control' %>
+      
+      <%= f.label :numero_plano_de_saude %>
+      <%= f.text_field :numero_plano_de_saude, class: 'form-control' %>
+      
+      <%= f.submit "Registrar Paciente", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<div class="row">
+    <% if @user.pacientes.any? %>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Email</th>
+            <th>Telefone Fixo</th>
+            <th>Telefone Celular</th>
+            <th>Data de Nascimento</th>
+            <th>Plano</th>
+            <th>Número do Plano</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @pacientes %>
+        </tbody>
+      </table>
+    <% end %>
+</div>
+
+<script>
+  $("#id-mostrarformpaciente").click(function(){
+    $(".row-criar-paciente").toggle("slow");
+  });
+</script>

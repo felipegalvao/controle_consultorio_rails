@@ -1,8 +1,21 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   get 'users/new'
 
   root 'static_pages#home'
-  get 'dashboard/' => 'static_pages#dashboard'
+  get 'dashboard' => 'static_pages#dashboard'
+  get 'criarconta'  => 'users#new'
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+  resources :users
+  
+  get 'dashboard/pacientes', to: 'pacientes#index', as: 'pacientes'
+  get 'dashboard/pacientes/:id', to: 'pacientes#show', as: 'paciente'
+  get 'dashboard/pacientes/novo' => 'pacientes#new'
+  post 'dashboard/pacientes' => 'pacientes#create'
+  
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
