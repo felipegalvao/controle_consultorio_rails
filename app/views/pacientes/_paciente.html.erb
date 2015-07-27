@@ -1,10 +1,10 @@
 <tr id="paciente-<%= paciente.id %>">
-  <td><%= link_to paciente.nome, paciente %></td>
+  <td><%= link_to paciente.nome, paciente_path(paciente) %></td>
   <td><%= paciente.cpf %></td>
   <td><%= paciente.email %></td>
   <td><%= paciente.telefone_fixo %></td>
   <td><%= paciente.telefone_celular %></td>
-  <td><%= paciente.data_de_nascimento %></td>
+  <td><%= l paciente.data_de_nascimento, format: :formatodata %></td>
   <td><%= paciente.plano_de_saude %></td>
   <td><%= paciente.numero_plano_de_saude %></td>
 </li>

@@ -75,10 +75,35 @@ p {
   display: none;
 }
 
+.row-criar-financeiro {
+  display: none;
+}
+
 .glyphicon-registrarpaciente {
   cursor: pointer;
 }
 
 .p-titulo-infopaciente {
   font-weight: bold;
+}
+
+.row-cabecalho-pacientes {
+  margin-bottom:10px;
+}
+
+.tr-financeiro-despesa {
+  background-color: #FC9E9E;
+}
+
+.tr-financeiro-receita {
+  background-color: #ADEDAD;
+}
+
+.tr-atendimento-editar {
+  cursor: pointer;
+  color: blue;
+}
+
+.tr-atendimento-editar:hover {
+  text-decoration: underline;
 }

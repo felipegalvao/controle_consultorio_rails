@@ -1,0 +1,16 @@
+br:
+    time:
+        formats:
+            formatohora: '%H:%M'
+            
+    date:
+        formats:
+            formatodata: '%d/%m/%Y'
+    number:
+        currency:
+            format:
+                unit: 'R$'
+                delimiter: '.'
+                separator: ','
+                precision: 2
+                format: '%u %n'

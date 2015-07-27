@@ -1,5 +1,6 @@
 class Paciente < ActiveRecord::Base
     belongs_to :user
+    has_many :atendimentos
     validates :nome, presence: true, length: { maximum: 100 }
     validates :identidade, presence: true, length: { maximum: 15 }, uniqueness: true
     validates :cpf, presence: true, length: { maximum: 15 }, uniqueness: true

@@ -11,7 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622140732) do
+ActiveRecord::Schema.define(version: 20150708141221) do
+
+  create_table "atendimentos", force: true do |t|
+    t.text     "observacoes"
+    t.date     "dia_agendado"
+    t.time     "horario_agendado"
+    t.time     "horario_chegada"
+    t.time     "horario_saida"
+    t.boolean  "consulta_cancelada"
+    t.string   "exame_procedimento"
+    t.string   "plano_de_saude"
+    t.integer  "paciente_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.time     "horario_entrada"
+  end
+
+  add_index "atendimentos", ["paciente_id"], name: "index_atendimentos_on_paciente_id", using: :btree
+
+  create_table "financeiros", force: true do |t|
+    t.string   "descricao"
+    t.string   "tipo"
+    t.string   "categoria"
+    t.decimal  "valor",      precision: 10, scale: 0
+    t.date     "data"
+    t.text     "observacao"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "financeiros", ["user_id"], name: "index_financeiros_on_user_id", using: :btree
 
   create_table "pacientes", force: true do |t|
     t.string   "nome"

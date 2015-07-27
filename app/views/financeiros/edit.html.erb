@@ -1,0 +1,38 @@
+<% provide(:title, 'Editar Despesa / Receita') %>
+
+<div class="row">
+    <div class="col-md-10">
+        <h1>Editar informações da Receita / Despesa</h1>
+    </div>
+    <div class="col-md-2 pull-right">
+        <p class="btn btn-default"><%= link_to "Retornar", financeiros_path %></p>
+    </div>
+</div>
+
+<%= render 'shared/financeiro_errors' %>
+<div class="row row-editar-financeiro">
+  <%= form_for(@financeiro) do |f| %>
+  
+      <%= f.label :descricao %>
+      <%= f.text_field :descricao, class: 'form-control' %>
+      
+      <%= f.label :tipo %>
+      <%= f.text_field :tipo, class: 'form-control' %>
+      
+      <%= f.label :categoria %>
+      <%= f.text_field :categoria, class: 'form-control' %>
+      
+      <%= f.label :valor %>
+      <%= f.number_field :valor, class: 'form-control' %>
+      
+      <%= f.label :data %>
+      <%= f.date_field :data, class: 'form-control' %>
+      
+      <%= f.label :observacao %>
+      <%= f.text_area :observacao, class: 'form-control' %>
+      
+      <%= f.submit "Editar Receita / Despesa", class: "btn btn-primary" %>
+  <% end %>
+  
+  <p class="btn btn-default"><%= link_to "Deletar", [@financeiro], method: :delete, confirm: "Tem certeza?" %></p>
+</div>

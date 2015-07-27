@@ -1,7 +1,23 @@
 <% provide(:title, "Paciente - " + @paciente.nome) %>
-<h1><%= @paciente.nome %></h1>
 <div class="row">
-    <h3>Informações do Paciente</h3>
+    <div class="col-md-8">
+        <h1><%= @paciente.nome %></h1>
+    </div>
+    <div class="col-md-4 pull-right">
+        <p class="btn btn-default"><%= link_to "Retornar aos seus pacientes", pacientes_path %></p>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <h3>Informações do Paciente</h3>    
+    </div>
+    <div class="col-md-6">
+        <p class="btn btn-default"><%= link_to "Editar Informações", editar_paciente_path %></p>
+    </div>
+</div>
+<div class="row">
     <div class="col-md-3">
         <p class="p-titulo-infopaciente">CPF</p>
         <p><%= @paciente.cpf %></p>
@@ -49,4 +65,38 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-4">
+        <h3>Atendimentos</h3>    
+    </div>
+    <div class="col-md-8">
+        <%= link_to 'Novo atendimento', novo_atendimento_path(@paciente) %>
+    </div>
+    
+    <% if @paciente.atendimentos.any? %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Dia Agendado</th>
+                    <th>Observações</th>
+                    <th>Horário Agendado</th>
+                    <th>Horário de Chegada</th>
+                    <th>Horário de Entrada</th>
+                    <th>Horário de Saída</th>
+                    <th>Consulta cancelada?</th>
+                    <th>Exame</th>
+                    <th>Plano</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%= render @atendimentos %>
+            </tbody>
+        </table>
+    <% end %>
+    
+    <script>
+        $("tr[data-link]").click(function() {
+            window.location = $(this).data("link")
+        })
+    </script>
 </div>

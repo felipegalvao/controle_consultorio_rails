@@ -1,4 +1,9 @@
 class PacientesController < ApplicationController
+    before_action :get_paciente, only: [ :show, :edit, :update, :destroy ]
+    
+    def get_paciente
+        @paciente = Paciente.find(params[:paciente_id])
+    end
     
     def index
         @user = current_user
@@ -12,19 +17,35 @@ class PacientesController < ApplicationController
     
     def create
         @user = current_user
-        @pacientes = @user.pacientes
         @paciente = Paciente.new(paciente_params)
         @paciente.user_id = current_user.id
         if @paciente.save
             flash[:success] = "Paciente registrado com sucesso"
-            redirect_to '/dashboard/pacientes'
+            redirect_to pacientes_path
         else
             render 'index'
         end
     end
     
     def show
-        @paciente = Paciente.find(params[:id])
+        @atendimentos = @paciente.atendimentos
+    end
+    
+    def edit
+        
+    end
+    
+    def update
+        if @paciente.update_attributes(paciente_params)
+            flash[:success] = "Informações do paciente atualizadas com sucesso."
+            redirect_to @paciente
+        else
+            render 'edit'
+        end
+    end
+    
+    def destroy
+        @paciente.destroy
     end
     
     private

@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
     has_many :pacientes
+    has_many :financeiros
     
     attr_accessor :remember_token
     before_save { self.email = email.downcase }
@@ -38,5 +39,21 @@ class User < ActiveRecord::Base
   # Esquece o usuário atual
   def forget
     update_attribute(:remember_digest, nil)
+  end
+  
+  def soma_despesas(data_de = "", data_ate = "")
+    if data_de == "" && data_ate == ""
+      financeiros.where("tipo = ?", "Despesa").sum(:valor)
+    else
+      financeiros.where("financeiros.tipo = ? AND financeiros.data >= ? AND financeiros.data <= ?", "Despesa", data_de, data_ate).sum(:valor)
+    end
+  end
+  
+  def soma_receitas(data_de = "", data_ate = "")
+    if data_de == "" && data_ate == ""
+      financeiros.where("tipo = ?", "Receita").sum(:valor)
+    else
+      financeiros.where("financeiros.tipo = ? AND financeiros.data >= ? AND financeiros.data <= ?", "Receita", data_de, data_ate).sum(:valor)
+    end
   end
 end

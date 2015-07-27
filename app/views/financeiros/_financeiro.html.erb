@@ -1,0 +1,13 @@
+<% if financeiro.tipo == "Despesa" %>
+    <tr class="tr-financeiro-despesa" id="financeiro-<%= financeiro.id %>">
+<% elsif financeiro.tipo == "Receita" %>
+    <tr class="tr-financeiro-receita" id="financeiro-<%= financeiro.id %>">
+<% end %>
+        <td><%= financeiro.tipo %></td>
+        <td><%= financeiro.descricao %></td>
+        <td><%= financeiro.categoria %></td>
+        <td><%= number_to_currency(financeiro.valor, :locale => :br) %></td>
+        <td><%= l financeiro.data, format: :formatodata %></td>
+        <td><%= financeiro.observacao %></td>
+        <td><%= link_to "Editar", editar_financeiro_path(financeiro) %></td>
+    </tr>

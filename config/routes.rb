@@ -1,21 +1,54 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
-  get 'users/new'
-
+  
   root 'static_pages#home'
   get 'dashboard' => 'static_pages#dashboard'
+  
+  resources :users do
+    resources :pacientes do
+      resources :atendimentos
+    end
+    resources :financeiros
+  end
+  
+  # Routes para usuários e login
+  # -------------------------------------------------------------------- #
   get 'criarconta'  => 'users#new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-  resources :users
+  # -------------------------------------------------------------------- #
   
+  # Routes relativos a gestão de pacientes
+  # -------------------------------------------------------------------- #
   get 'dashboard/pacientes', to: 'pacientes#index', as: 'pacientes'
-  get 'dashboard/pacientes/:id', to: 'pacientes#show', as: 'paciente'
-  get 'dashboard/pacientes/novo' => 'pacientes#new'
+  get 'dashboard/pacientes/novo' => 'pacientes#new', as: 'novo_paciente'
+  get 'dashboard/pacientes/:paciente_id', to: 'pacientes#show', as: 'paciente'
+  get 'dashboard/pacientes/:paciente_id/editar', to: 'pacientes#edit', as: 'editar_paciente'
   post 'dashboard/pacientes' => 'pacientes#create'
+  patch 'dashboard/pacientes/:paciente_id' => 'pacientes#update'
+  delete 'dashboard/pacientes/:paciente_id' => 'pacientes#destroy'
+  # -------------------------------------------------------------------- #
   
+  # Routes para os atendimentos
+  # -------------------------------------------------------------------- #
+  get 'dashboard/pacientes/:paciente_id/atendimentos/novo', to: 'atendimentos#new', as: 'novo_atendimento'
+  get 'dashboard/pacientes/:paciente_id/atendimentos/:atendimento_id', to: 'atendimentos#show', as: 'atendimento'
+  get 'dashboard/pacientes/:paciente_id/atendimentos/' => 'atendimentos#index', as: 'atendimentos'
+  get 'dashboard/pacientes/:paciente_id/atendimentos/:atendimento_id/editar', to: 'atendimentos#edit', as: 'editar_atendimento'
+  post 'dashboard/pacientes/:paciente_id/atendimentos' => 'atendimentos#create'
+  patch 'dashboard/pacientes/:paciente_id/atendimentos/:atendimento_id/editar' => 'atendimentos#update'
+  # -------------------------------------------------------------------- #
+  
+  # Routes para Financeiro
+  # -------------------------------------------------------------------- #
+  get 'dashboard/financeiro', to: 'financeiros#index', as: 'financeiros'
+  get 'dashboard/financeiro/novo' => 'financeiros#new', as: 'novo_financeiro'
+  get 'dashboard/financeiro/:financeiro_id', to: 'financeiros#show', as: 'financeiro'
+  get 'dashboard/financeiro/:financeiro_id/editar', to: 'financeiros#edit', as: 'editar_financeiro'
+  post 'dashboard/financeiro' => 'financeiros#create'
+  patch 'dashboard/financeiro/:financeiro_id' => 'financeiros#update'
+  delete 'dashboard/financeiro/:financeiro_id' => 'financeiros#destroy'
+  # -------------------------------------------------------------------- #
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,46 @@
+<% provide(:title, "Editar atendimento") %>
+<div class="row">
+    <div class="col-md-10">
+        <h1>Editar Atendimento</h1>
+    </div>
+    <div class="col-md-2 pull-right">
+        <p class="btn btn-default"><%= link_to "Retornar", paciente_path(@paciente.id) %></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <%= form_for @atendimento, url: {action: "edit"} do |f| %>
+            <%= render 'shared/atendimento_errors' %>
+        
+            <%= f.label :dia_agendado %>
+            <%= f.date_field :dia_agendado, class: 'form-control' %>
+            
+            <%= f.label :horario_agendado %>
+            <%= f.time_field :horario_agendado, class: 'form-control' %>
+            
+            <%= f.label :horario_chegada %>
+            <%= f.time_field :horario_chegada, class: 'form-control' %>
+            
+            <%= f.label :horario_entrada %>
+            <%= f.time_field :horario_entrada, class: 'form-control' %>
+            
+            <%= f.label :horario_saida %>
+            <%= f.time_field :horario_saida, class: 'form-control' %>
+            
+            <%= f.label :consulta_cancelada %>
+            <%= f.check_box :consulta_cancelada, class: 'form-control' %>
+            
+            <%= f.label :exame_procedimento %>
+            <%= f.text_field :exame_procedimento, class: 'form-control' %>
+            
+            <%= f.label :plano_de_saude %>
+            <%= f.text_field :plano_de_saude, class: 'form-control' %>
+            
+            <%= f.label :observacoes %>
+            <%= f.text_area :observacoes, class: 'form-control' %>
+            
+            <%= f.submit "Editar Atendimento", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+</div>

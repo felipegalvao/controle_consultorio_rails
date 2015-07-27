@@ -1,0 +1,12 @@
+<% if @financeiro.errors.any? %>
+  <div id="div-listaerros">
+    <div class="alert alert-danger">
+      Por favor, conserte os seguintes erros:
+    </div>
+    <ul>
+    <% @financeiro.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

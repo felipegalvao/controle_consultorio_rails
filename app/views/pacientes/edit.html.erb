@@ -1,17 +1,15 @@
-<% provide(:title, 'Pacientes') %>
+<% provide(:title, 'Editar paciente - ' + @paciente.nome) %>
 
-<h1>Pacientes</h1>
-<div class="row row-cabecalho-pacientes">
-  <div class="col-md-6">
-    <p>Gerencie aqui todos os seus pacientes</p>
-  </div>
+<div class="row">
+    <div class="col-md-10">
+        <h1>Editar informações do paciente</h1>
+    </div>
+    <div class="col-md-2 pull-right">
+        <p class="btn btn-default"><%= link_to "Retornar", paciente_path(@paciente) %></p>
+    </div>
 </div>
 
-<div class="alert alert-info">
-  <p><span class="glyphicon glyphicon-plus glyphicon-registrarpaciente" id="id-mostrarformpaciente"></span> Registrar um novo paciente</p>
-</div>
-<%= render 'shared/paciente_errors' %>
-<div class="row row-criar-paciente">
+<div class="row row-editar-paciente">
   <%= form_for(@paciente) do |f| %>
   
       <%= f.label :nome %>
@@ -47,34 +45,6 @@
       <%= f.label :numero_plano_de_saude %>
       <%= f.text_field :numero_plano_de_saude, class: 'form-control' %>
       
-      <%= f.submit "Registrar Paciente", class: "btn btn-primary" %>
+      <%= f.submit "Salvar", class: "btn btn-primary" %>
   <% end %>
 </div>
-
-<div class="row">
-    <% if @user.pacientes.any? %>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>CPF</th>
-            <th>Email</th>
-            <th>Telefone Fixo</th>
-            <th>Telefone Celular</th>
-            <th>Data de Nascimento</th>
-            <th>Plano</th>
-            <th>Número do Plano</th>
-          </tr>
-        </thead>
-        <tbody>
-          <%= render @pacientes %>
-        </tbody>
-      </table>
-    <% end %>
-</div>
-
-<script>
-  $("#id-mostrarformpaciente").click(function(){
-    $(".row-criar-paciente").toggle("slow");
-  });
-</script>

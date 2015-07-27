@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  observacoes: MyText
+  dia_agendado: 2015-06-26
+  horario_agendado: 2015-06-26 17:55:34
+  horario_chegada: 2015-06-26 17:55:34
+  horario_saida: 2015-06-26 17:55:34
+  consulta_cancelada: false
+  exame_procedimento: MyString
+  plano_de_saude: MyString
+  paciente_id: 
+
+two:
+  observacoes: MyText
+  dia_agendado: 2015-06-26
+  horario_agendado: 2015-06-26 17:55:34
+  horario_chegada: 2015-06-26 17:55:34
+  horario_saida: 2015-06-26 17:55:34
+  consulta_cancelada: false
+  exame_procedimento: MyString
+  plano_de_saude: MyString
+  paciente_id: 

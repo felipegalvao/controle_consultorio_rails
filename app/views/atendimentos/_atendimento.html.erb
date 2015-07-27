@@ -1,0 +1,11 @@
+<tr class="tr-atendimento-editar" id="atendimento-<%= atendimento.id %>" data-link="<%= editar_atendimento_path(@paciente, atendimento) %>">
+  <td><%= l atendimento.dia_agendado, format: :formatodata %></td>
+  <td><%= atendimento.observacoes %></td>
+  <td><%= l atendimento.horario_agendado, format: :formatohora %></td>
+  <td><%= l atendimento.horario_chegada, format: :formatohora %></td>
+  <td><%= l atendimento.horario_entrada, format: :formatohora %></td>
+  <td><%= l atendimento.horario_saida, format: :formatohora %></td>
+  <td><%= atendimento.consulta_cancelada %></td>
+  <td><%= atendimento.exame_procedimento %></td>
+  <td><%= atendimento.plano_de_saude %></td>
+</li>
