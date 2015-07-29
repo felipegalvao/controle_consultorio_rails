@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150708141221) do
+ActiveRecord::Schema.define(version: 20150727140523) do
+
+  create_table "agendamentos", force: true do |t|
+    t.date     "data"
+    t.time     "horario"
+    t.boolean  "confirmado"
+    t.integer  "paciente_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "agendamentos", ["paciente_id"], name: "index_agendamentos_on_paciente_id", using: :btree
 
   create_table "atendimentos", force: true do |t|
     t.text     "observacoes"

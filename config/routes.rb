@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   resources :users do
     resources :pacientes do
+      resources :agendamentos
       resources :atendimentos
     end
     resources :financeiros
@@ -37,6 +38,16 @@ Rails.application.routes.draw do
   get 'dashboard/pacientes/:paciente_id/atendimentos/:atendimento_id/editar', to: 'atendimentos#edit', as: 'editar_atendimento'
   post 'dashboard/pacientes/:paciente_id/atendimentos' => 'atendimentos#create'
   patch 'dashboard/pacientes/:paciente_id/atendimentos/:atendimento_id/editar' => 'atendimentos#update'
+  # -------------------------------------------------------------------- #
+  
+  # Routes para os agendamentos
+  # -------------------------------------------------------------------- #
+  get 'dashboard/agendamementos/novo', to: 'agendamentos#new', as: 'novo_agendamento'
+  get 'dashboard/agendamentos/:agendamento_id', to: 'agendamentos#show', as: 'agendamento'
+  get 'dashboard/agendamentos' => 'agendamentos#index', as: 'agendamentos'
+  get 'dashboard/agendamentos/:agendamento_id/editar', to: 'agendamentos#edit', as: 'editar_agendamento'
+  post 'dashboard/agendamentos' => 'agendamentos#create'
+  patch 'dashboard/agendamentos/:agendamento_id/editar' => 'agendamentos#update'
   # -------------------------------------------------------------------- #
   
   # Routes para Financeiro

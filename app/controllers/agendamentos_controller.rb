@@ -1,0 +1,2 @@
+class AgendamentosController < ApplicationController
+end

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 2015-07-27
+  horario: 2015-07-27 14:05:23
+  confirmado: false
+  paciente_id: 
+
+two:
+  data: 2015-07-27
+  horario: 2015-07-27 14:05:23
+  confirmado: false
+  paciente_id: 

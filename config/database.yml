@@ -5,14 +5,14 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: mysql2
+  adapter: <%= ENV['database_adapter'] %>
+  host: <%= ENV['database_host'] %>
+  username: <%= ENV['database_username'] %>
+  password: <%= ENV['database_password'] %>
   encoding: utf8
   reconnect: false
   pool: 5
   timeout: 5000
-  username: felipect86
-  password: 
-  host: felipect86-controleconsultoriorails-1580314
   port: 3306
 
 development:
