@@ -1,24 +1,23 @@
+# Rails - Controle de Consultório / Clinic Management
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+### Descrição em Português (english version below):
 
+Projeto em Rails para gestão de consultórios
 
-Welcome to your Rails project on Cloud9 IDE!
+Inclui:
 
-To get started, just do the following:
+- Agendamento e registro de informações de tratamento
+- Controle de Receitas e Despesas
+- Painel de Controle com indicadores e gráficos
 
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://controleconsultoriorails-felipect86.c9.io/).
+--------------------------------------------------------------
 
-Happy coding!
-The Cloud9 IDE team
+### English description:
 
+Project in Rails for management of Clinics
 
-## Support & Documentation
+Includes:
 
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
+- Appointment scheduling and treatment information record
+- Incomings and expenses control
+- Dashboard with performance indexes and charts
