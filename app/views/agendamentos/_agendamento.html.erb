@@ -1,0 +1,7 @@
+<tr class="tr-agendamentos">
+    <td><%= agendamento.paciente.nome %></td>
+    <td><%= l agendamento.data, format: :formatodata %></td>
+    <td><%= l agendamento.horario, format: :formatohora %></td>
+    <td><%= agendamento.confirmado %></td>
+    <td><%= link_to "Editar", editar_agendamento_path(agendamento) %></td>
+</tr>

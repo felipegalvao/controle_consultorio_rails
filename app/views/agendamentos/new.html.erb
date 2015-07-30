@@ -1,0 +1,22 @@
+<% provide(:title, "Novo agendamento") %>
+
+<div class="row">
+    <%= form_for(@agendamento) do |f| %>
+        <%= render 'shared/agendamento_errors' %>
+        
+        <%= f.label :paciente_id %>
+        <%= f.select :paciente_id, @pacientes.collect { |s| [s.nome, s.id] }, {}, { class: 'form-control' } %>
+        
+        <%= f.label :data %>
+        <%= f.date_field :data, class: 'form-control' %>
+        
+        <%= f.label :horario %>
+        <%= f.time_field :horario, class: 'form-control' %>
+        
+        <%= f.label :confirmado %>
+        <%= f.check_box :confirmado, class: 'form-control' %>
+        
+        <%= f.submit "Criar agendamento", class: 'btn btn-primary' %>
+        <p class="btn btn-default"><%= link_to "Retornar", agendamentos_path %></p>
+    <% end %>
+</div>

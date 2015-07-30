@@ -1,0 +1,22 @@
+<% provide(:title, "Agendamentos") %>
+
+<h1>Agendamentos</h1>
+<div class="row">
+    <p class="btn btn-default"><%= link_to "Novo Agendamento", novo_agendamento_path %> </p>
+</div>
+<% if @user.agendamentos.any? %>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Paciente</th>
+                <th>Data</th>
+                <th>Horário</th>
+                <th>Confirmado?</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%= render @agendamentos %>
+        </tbody>
+    </table>
+<% end %>

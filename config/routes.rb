@@ -47,7 +47,7 @@ Rails.application.routes.draw do
   get 'dashboard/agendamentos' => 'agendamentos#index', as: 'agendamentos'
   get 'dashboard/agendamentos/:agendamento_id/editar', to: 'agendamentos#edit', as: 'editar_agendamento'
   post 'dashboard/agendamentos' => 'agendamentos#create'
-  patch 'dashboard/agendamentos/:agendamento_id/editar' => 'agendamentos#update'
+  patch 'dashboard/agendamentos/:agendamento_id' => 'agendamentos#update'
   # -------------------------------------------------------------------- #
   
   # Routes para Financeiro

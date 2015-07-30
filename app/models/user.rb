@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
     has_many :pacientes
     has_many :financeiros
+    has_many :atendimentos, through: :pacientes
+    has_many :agendamentos, through: :pacientes
     
     attr_accessor :remember_token
     before_save { self.email = email.downcase }
